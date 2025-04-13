@@ -17,7 +17,7 @@
     "SOFiSTiK",
     "Sinumerik"
   ],
-  "version": "1.2.3",
+  "version": "1.2.4",
   "license": "MIT",
   "engines": {
     "atom": ">=1.100.0 <2.0.0"
@@ -48,9 +48,18 @@
           "description": "Default panel side to navigation-panel appear. Restart needed.",
           "type": "string",
           "enum": [
-            { "description": "Left"  , "value": "left"   },
-            { "description": "Right" , "value": "right"  },
-            { "description": "Bottom", "value": "bottom" }
+            {
+              "description": "Left",
+              "value": "left"
+            },
+            {
+              "description": "Right",
+              "value": "right"
+            },
+            {
+              "description": "Bottom",
+              "value": "bottom"
+            }
           ],
           "default": "left"
         },
@@ -67,11 +76,26 @@
           "type": "string",
           "description": "Select the type of decoration markers. Restart needed.",
           "enum": [
-            { "description": "Line"              , "value": "line"             },
-            { "description": "Line number"       , "value": "line-number"      },
-            { "description": "Text"              , "value": "text"             },
-            { "description": "Line & Line number", "value": "line&line-number" },
-            { "description": "Text & Line number", "value": "text&line-number" }
+            {
+              "description": "Line",
+              "value": "line"
+            },
+            {
+              "description": "Line number",
+              "value": "line-number"
+            },
+            {
+              "description": "Text",
+              "value": "text"
+            },
+            {
+              "description": "Line & Line number",
+              "value": "line&line-number"
+            },
+            {
+              "description": "Text & Line number",
+              "value": "text&line-number"
+            }
           ],
           "default": "line"
         },
@@ -117,9 +141,18 @@
           "description": "Set the visibility mode of tree headers. You can change this parameter for Atom instance by command or in conext-menu of panel. Restart needed.",
           "type": "integer",
           "enum": [
-            { "description": "Collapse mode", "value": 0 },
-            { "description": "Expand mode"  , "value": 1 },
-            { "description": "Auto collapse", "value": 2 }
+            {
+              "description": "Collapse mode",
+              "value": 0
+            },
+            {
+              "description": "Expand mode",
+              "value": 1
+            },
+            {
+              "description": "Auto collapse",
+              "value": 2
+            }
           ],
           "default": 1
         },
