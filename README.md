@@ -254,7 +254,8 @@ Global regular expression is `^ *(#define [^\n=]+$|#enddef)|^!([+-\\#\\$])!(?:ch
 
 ## Sinumerik
 
-Global regular expression is `^;{2}[*+\-!]? (.+)$`
+Global regular expression is `^;{2}[*+\-!]? (.+)$`.
+
 - e.g. `;;* TODO`
 
 Additional letter can be used to provide additional visual effect:
