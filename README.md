@@ -198,6 +198,7 @@ Any additional letters can be used to provide additional visual effect:
 
 - `_`: separator line above the item
 - `<`: increase font size
+- `;`: font weight is bold
 
 As special case you can use `#?#` or `#?<category>#` which mean auto level base on pattern `<any>(<lvl as int>, "<text>"<any>)`. It is useful e.g. in PyLaTex or similar.
 
