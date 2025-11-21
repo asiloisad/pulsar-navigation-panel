@@ -238,6 +238,41 @@ As special case you can use `//?//` or `//?<category>//` which mean auto level b
 - e.g. `document.section(2, 'United Kingdom') //?+//` -> `1.1. United Kingdom` with success category
 - e.g. `document.section(2, 'United Kingdom') //?!//` -> `1.1. United Kingdom` with error category
 
+## JavaScript
+
+Global regular expression is `^([^\/\/\n]*)\/\/(?:%%)?(\$+[scfv1]?|\?)([\*\+\-\!\_]?)\/\/(.*)` where count of `$` mean the level on list.
+
+Additional letter can be used to provide additional parse effect:
+
+- `s`: get only text from first string which occur at line
+- `c`: class, interface or enum; show only type and name of object
+- `f`: function; show function, const, let, var, or async declarations
+- `v`: variable; show only name of variable (const/let/var)
+- `1`: use only first word (split by whitespace), without optional after-brace
+
+One additional letter can be used to assign a category:
+
+- `*`: info category
+- `+`: success category
+- `-`: warning category
+- `!`: error category
+
+Any additional letters can be used to provide additional visual effect:
+
+- `_`: separator line above the item
+- `<`: increase font size
+- `;`: font weight is bold
+
+As special case you can use `//?//` or `//?<category>//` which mean auto level base on pattern `<any>(<lvl as int>, "<text>"<any>)`.
+
+- e.g. `//$// Main Section` -> `1. Main Section`
+- e.g. `//$$// Sub Section` -> `1.1. Sub Section`
+- e.g. `class MyClass { //$c// Class definition` -> `1. MyClass`
+- e.g. `function myFunc() { //$f// Function` -> `1. myFunc`
+- e.g. `const value = 10; //$$v//` -> `1.1. value`
+- e.g. `document.section(1, 'Main') //?!//` -> `1. Main` with error category
+- e.g. `document.section(2, 'Sub') //?+//` -> `1.1. Sub` with success category
+
 ## ReStructuredText
 
 Global regular expression is `^(.+)\n([!-/:-@[-[-~])\2+$`.
@@ -271,4 +306,4 @@ The package support the outline tree of [pdf-viewer](https://github.com/asiloisa
 
 # Contributing
 
-Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback’s welcome!
+Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
