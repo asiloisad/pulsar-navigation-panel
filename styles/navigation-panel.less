@@ -164,7 +164,7 @@
       display: none;
     }
 
-    #navigation-switch-info {
+    .navigation-switch-info {
       background-color: fade(@background-color-info, 10%);
       &:checked {
         background-color: @background-color-info;
@@ -177,7 +177,7 @@
       }
     }
 
-    #navigation-switch-success {
+    .navigation-switch-success {
       background-color: fade(@background-color-success, 10%);
       &:checked {
         background-color: @background-color-success;
@@ -190,7 +190,7 @@
       }
     }
 
-    #navigation-switch-warning {
+    .navigation-switch-warning {
       background-color: fade(@background-color-warning, 10%);
       &:checked {
         background-color: @background-color-warning;
@@ -203,7 +203,7 @@
       }
     }
 
-    #navigation-switch-error {
+    .navigation-switch-error {
       background-color: fade(@background-color-error, 10%);
       &:checked {
         background-color: @background-color-error;
@@ -216,7 +216,7 @@
       }
     }
 
-    #navigation-switch-standard {
+    .navigation-switch-standard {
       background-color: fade(@text-color, 10%);
       &:checked {
         background-color: @text-color;
@@ -227,18 +227,6 @@
       &:checked:hover {
         background-color: fade(@text-color, 60%);
       }
-    }
-  }
-}
-
-atom-dock.bottom {
-  .navigation-list {
-    white-space: nowrap;
-    margin-left: 0;
-    display: flex;
-    .navigation-tree {
-      margin-left: calc(@navigation-indent/2);
-      display: table;
     }
   }
 }

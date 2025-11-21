@@ -55,10 +55,6 @@
             {
               "description": "Right",
               "value": "right"
-            },
-            {
-              "description": "Bottom",
-              "value": "bottom"
             }
           ],
           "default": "left"
