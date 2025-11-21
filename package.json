@@ -158,16 +158,8 @@
           "type": "boolean",
           "default": false
         },
-        "animationThreshold": {
-          "order": 11,
-          "title": "Threshold of scroll animation",
-          "description": "After tree click the editor scroll with animation of [smooth-scroll](https://github.com/asiloisad/pulsar-smooth-scroll) if distance between screen position and header is below the limit.",
-          "type": "integer",
-          "minimum": 0,
-          "default": 250
-        },
         "traceVisible": {
-          "order": 12,
+          "order": 11,
           "title": "Trace visible headers",
           "description": "Mark icon of visible headers and scroll view of navigation-tree.",
           "type": "boolean",
