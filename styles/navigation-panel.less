@@ -11,7 +11,7 @@
     display: block;
     position: relative;
 
-    atom-text-editor{
+    atom-text-editor {
       font-size: @font-size;
     }
 
@@ -33,7 +33,9 @@
 
     margin: 0.375em;
 
-    &:empty { display: none }
+    &:empty {
+      display: none
+    }
   }
 
   .navigation-list ul.background-message {
@@ -41,12 +43,19 @@
     top: 45%;
   }
 
-  .navigation-list {
+  .navigation-scroller {
     margin-left: -@navigation-indent;
     overflow: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
     height: 100%;
     -webkit-user-select: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navigation-list {
+    min-width: 100%;
+    width: max-content;
 
     .navigation-tree {
       margin-left: @navigation-indent;
@@ -104,6 +113,7 @@
 
         &.visible {
           background: fade(@text-color-info, 5%);
+
           .navigation-icon {
             color: @text-color-info;
           }
@@ -150,7 +160,9 @@
     background: inherit;
     width: 100%;
 
-    &:empty { display: none }
+    &:empty {
+      display: none
+    }
 
     .navigation-switch {
       width: 100%;
@@ -166,12 +178,15 @@
 
     .navigation-switch-info {
       background-color: fade(@background-color-info, 10%);
+
       &:checked {
         background-color: @background-color-info;
       }
+
       &:hover {
         background-color: fade(@background-color-info, 40%);
       }
+
       &:checked:hover {
         background-color: fade(@background-color-info, 60%);
       }
@@ -179,12 +194,15 @@
 
     .navigation-switch-success {
       background-color: fade(@background-color-success, 10%);
+
       &:checked {
         background-color: @background-color-success;
       }
+
       &:hover {
         background-color: fade(@background-color-success, 40%);
       }
+
       &:checked:hover {
         background-color: fade(@background-color-success, 60%);
       }
@@ -192,12 +210,15 @@
 
     .navigation-switch-warning {
       background-color: fade(@background-color-warning, 10%);
+
       &:checked {
         background-color: @background-color-warning;
       }
+
       &:hover {
         background-color: fade(@background-color-warning, 40%);
       }
+
       &:checked:hover {
         background-color: fade(@background-color-warning, 60%);
       }
@@ -205,12 +226,15 @@
 
     .navigation-switch-error {
       background-color: fade(@background-color-error, 10%);
+
       &:checked {
         background-color: @background-color-error;
       }
+
       &:hover {
         background-color: fade(@background-color-error, 40%);
       }
+
       &:checked:hover {
         background-color: fade(@background-color-error, 60%);
       }
@@ -218,12 +242,15 @@
 
     .navigation-switch-standard {
       background-color: fade(@text-color, 10%);
+
       &:checked {
         background-color: @text-color;
       }
+
       &:hover {
         background-color: fade(@text-color, 40%);
       }
+
       &:checked:hover {
         background-color: fade(@text-color, 60%);
       }
@@ -234,18 +261,23 @@
 .navigation-marker {
   background: fade(@background-color-selected, 20%)
 }
+
 .navigation-marker-5 {
   background: fade(@ui-site-color-5, 20%);
 }
+
 .navigation-marker-4 {
   background: fade(@ui-site-color-4, 20%);
 }
+
 .navigation-marker-3 {
   background: fade(@ui-site-color-3, 20%);
 }
+
 .navigation-marker-2 {
   background: fade(@ui-site-color-2, 20%);
 }
+
 .navigation-marker-1 {
   background: fade(@ui-site-color-1, 20%);
 }
