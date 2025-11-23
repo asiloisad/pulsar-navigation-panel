@@ -304,6 +304,10 @@ Additional letter can be used to provide additional visual effect:
 
 The package support the outline tree of [pdf-viewer](https://github.com/asiloisad/pulsar-pdf-viewer). You can search through document by all-in outline tree instead of PDFjs outline. A section number can be hidden.
 
+## image-editor
+
+The package support the file list of [image-editor](https://github.com/asiloisad/pulsar-image-editor).
+
 # Contributing
 
 Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
