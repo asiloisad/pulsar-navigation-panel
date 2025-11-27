@@ -153,10 +153,24 @@
         },
         "centerScroll": {
           "order": 10,
-          "title": "Center scroll mode",
-          "description": "After tree click scroll the editor to place the cursor at the center.",
-          "type": "boolean",
-          "default": false
+          "title": "Scroll position mode",
+          "description": "After tree click scroll the editor to place the cursor at the specified position.",
+          "type": "string",
+          "enum": [
+            {
+              "description": "Top",
+              "value": "top"
+            },
+            {
+              "description": "Nearest",
+              "value": "nearest"
+            },
+            {
+              "description": "Center",
+              "value": "center"
+            }
+          ],
+          "default": "Top"
         },
         "traceVisible": {
           "order": 11,
