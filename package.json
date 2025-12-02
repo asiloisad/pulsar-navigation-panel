@@ -170,7 +170,7 @@
               "value": "center"
             }
           ],
-          "default": "Top"
+          "default": "top"
         },
         "traceVisible": {
           "order": 11,
