@@ -308,6 +308,17 @@ The package support the outline tree of [pdf-viewer](https://github.com/asiloisa
 
 The package support the file list of [image-editor](https://github.com/asiloisad/pulsar-image-editor).
 
+## scroll-map integration
+
+The package integrates with [scroll-map](https://github.com/asiloisad/pulsar-scroll-map) to display header markers on the scroll bar. When both packages are installed, navigation markers appear on the scroll bar for quick navigation. The layer can be enabled/disabled in the package settings under "Scroll-map layer".
+
+To customize the marker appearance:
+```less
+.scroll-map .scroll-item.navi-layer {
+  background-color: @ui-site-color-3;
+}
+```
+
 # Contributing
 
 Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
