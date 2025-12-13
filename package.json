@@ -23,13 +23,6 @@
     "atom": ">=1.100.0 <2.0.0"
   },
   "main": "./lib/main",
-  "consumedServices": {
-    "scroll-map": {
-      "versions": {
-        "^1.0.0": "consumeScrollMap"
-      }
-    }
-  },
   "providedServices": {
     "navigation-panel": {
       "versions": {
@@ -346,21 +339,6 @@
           "default": false
         }
       }
-    },
-    "scrollMapState": {
-      "order": 6,
-      "type": "boolean",
-      "title": "Scroll Map",
-      "description": "Display navigation markers on scroll bar.",
-      "default": true
-    },
-    "scrollMapThreshold": {
-      "order": 7,
-      "type": "integer",
-      "title": "Scroll Map Threshold",
-      "description": "Maximum number of markers to display. The limit doesn't apply if zero.",
-      "minimum": 0,
-      "default": 0
     }
   }
 }
