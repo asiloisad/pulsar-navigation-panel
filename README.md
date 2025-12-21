@@ -308,13 +308,13 @@ The package support the outline tree of [pdf-viewer](https://github.com/asiloisa
 
 The package support the file list of [image-editor](https://github.com/asiloisad/pulsar-image-editor).
 
-## scroll-map integration
+## scrollmap integration
 
-The package integrates with [scroll-map](https://github.com/asiloisad/pulsar-scroll-map) to display header markers on the scroll bar. When both packages are installed, navigation markers appear on the scroll bar for quick navigation. The layer can be enabled/disabled in the package settings under "Scroll-map layer".
+The package integrates with [scrollmap](https://github.com/asiloisad/pulsar-scrollmap) to display header markers on the scroll bar. When both packages are installed, navigation markers appear on the scroll bar for quick navigation. The layer can be enabled/disabled in the package settings under "Scrollmap layer".
 
 To customize the marker appearance:
 ```less
-.scroll-map .scroll-item.navi-layer {
+.scrollmap .scrollmap-item.scrollmap-navi {
   background-color: @ui-site-color-3;
 }
 ```
