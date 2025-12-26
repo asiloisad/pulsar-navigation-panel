@@ -40,6 +40,7 @@
       "title": "General",
       "description": "General settings for all scopes.",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "defaultSide": {
           "order": 1,
@@ -186,6 +187,7 @@
       "title": "Categories for headers",
       "description": "Mark headers by categories. The categories can be filtered in bottom bar of panel, context menu of panel or by command. The categories are predefined: info, success, warning, error. The meaning of the categories depends on the creativity of the user, use them as you like.",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "info": {
           "order": 1,
@@ -229,6 +231,7 @@
       "title": "LaTeX",
       "description": "LaTeX scope settings.",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "commands": {
           "type": "object",
@@ -293,6 +296,7 @@
       "title": "SOFiSTiK",
       "description": "SOFiSTiK scope settings.",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "inBlock": {
           "order": 1,
@@ -315,6 +319,7 @@
       "title": "Tasklist",
       "description": "Tasklist scope settings.",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "useHeaders": {
           "order": 1,
@@ -330,6 +335,7 @@
       "title": "PDFjs",
       "description": "PDFjs scope settings.",
       "type": "object",
+      "collapsed": true,
       "properties": {
         "snoFilter": {
           "order": 1,
