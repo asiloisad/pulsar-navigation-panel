@@ -1,8 +1,17 @@
 # navigation-panel
 
-Document navigation panel using special symbols.
+Document outline and navigation panel. Navigate through custom section markers in text editors with tree view, filtering, and folding support.
 
 ![docface](https://github.com/asiloisad/pulsar-navigation-panel/blob/master/assets/docface.png?raw=true)
+
+## Features
+
+- **Tree navigation**: Browse document structure with collapsible sections.
+- **Multi-level headers**: Automatic level calculation for nested sections.
+- **Category markers**: Tag headers as info, success, warning, or error.
+- **Section folding**: Fold/unfold sections and view as table of contents.
+- **Multiple scopes**: LaTeX, Python, Markdown, JavaScript, and more.
+- **Scrollmap**: Shows navigation markers in the scrollbar via [scrollmap](https://github.com/asiloisad/pulsar-scrollmap).
 
 ## Installation
 
@@ -10,7 +19,7 @@ To install `navigation-panel` search for [navigation-panel](https://web.pulsar-e
 
 ## Sections panel
 
-This package provides a panel for navigating through custom symbols in text editors. The tree items are manually created by inserting special markers into the text editor. Multiple scopes are supported (see below) with their own marker system. You can open or hide the panel using the `navigation-panel:open` and `navigation-panel:hide` commands or optionally use `navigation-panel:toggle`. The package supports multiple cursors.
+This package provides a panel for navigating through custom symbols in text editors. The tree items are manually created by inserting special markers into the text editor. Multiple scopes are supported (see below) with their own marker system. You can open or hide the panel using the `navigation-panel:open` and `navigation-panel:hide` commands or optionally use `navigation-panel:toggle` (`Alt+N`). The package supports multiple cursors.
 
 ## Real section level
 
@@ -25,8 +34,8 @@ For each header, the package can create a marker to highlight the corresponding 
 A panel has few handly commands. There are mouse interactions:
 
 - `LeftMouseButton`: scroll to header
-- `Ctrl-LeftMouseButton`: create a new cursor on the header line and scroll to
-- `Alt-LeftMouseButton`: copy header text
+- `Ctrl+LeftMouseButton`: create a new cursor on the header line and scroll to
+- `Alt+LeftMouseButton`: copy header text
 
 At context menu there are shortcuts to modify settings locally.
 
@@ -81,11 +90,11 @@ In order to search for markers in a text editor, all lines of the editor are tes
 
 You can test and analyze the regex patterns below on [regex101](https://regex101.com/). Just select the flavor as `ECMAScript (JavaScript)` and paste the statement.
 
-## Customize the appearance
+## Customization
 
-Markers can be customized to meet the user's needs. The customization file `styles.less` can be opened by menu bar `File/Stylesheet...` or by command `application:open-your-stylesheet`.
+The style can be adjusted according to user preferences in the `styles.less` file:
 
-- e.g. all markers has highlighted background, but only level 1, 2 and 3 has their own color:
+- e.g. all markers have highlighted background, but only level 1, 2 and 3 have their own color:
   ```less
   .navigation-marker {
     background: rgba(233, 228, 141, 0.3);
@@ -108,7 +117,7 @@ Markers can be customized to meet the user's needs. The customization file `styl
   }
   ```
 
-- e.g. change font to monospace (or any other...):
+- e.g. change font to monospace:
   ```less
   .navigation-panel {
     font-family: monospace;
@@ -308,17 +317,6 @@ The package support the outline tree of [pdf-viewer](https://github.com/asiloisa
 
 The package support the file list of [image-editor](https://github.com/asiloisad/pulsar-image-editor).
 
-## scrollmap integration
-
-The package integrates with [scrollmap](https://github.com/asiloisad/pulsar-scrollmap) to display header markers on the scroll bar. When both packages are installed, navigation markers appear on the scroll bar for quick navigation. The layer can be enabled/disabled in the package settings under "Scrollmap layer".
-
-To customize the marker appearance:
-```less
-.scrollmap .scrollmap-item.scrollmap-navi {
-  background-color: @ui-site-color-3;
-}
-```
-
-# Contributing
+## Contributing
 
 Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
