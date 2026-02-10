@@ -98,3 +98,23 @@
       command: 'navigation-panel:category-bar-toggle'
     },
   ]
+
+'menu': [
+  {
+    label: 'Packages'
+    submenu: [
+      {
+        label: 'Navigation Panel'
+        submenu: [
+          { label: 'Open', command: 'navigation-panel:open' }
+          { label: 'Open and Split Down', command: 'navigation-panel:open-and-split-down' }
+          { label: 'Toggle', command: 'navigation-panel:toggle' }
+          { label: 'Hide', command: 'navigation-panel:hide' }
+          { type: 'separator' }
+          { label: 'Next Header', command: 'navigation-panel:next-header' }
+          { label: 'Previous Header', command: 'navigation-panel:previous-header' }
+        ]
+      }
+    ]
+  }
+]
