@@ -1,6 +1,6 @@
 {
   "name": "navigation-panel",
-  "description": "Document navigation panel using special symbols.",
+  "description": "Document outline and navigation panel",
   "repository": "https://github.com/asiloisad/pulsar-navigation-panel",
   "keywords": [
     "navigation",
