@@ -19,7 +19,7 @@ To install `navigation-panel` search for [navigation-panel](https://web.pulsar-e
 
 ## Sections panel
 
-This package provides a panel for navigating through custom symbols in text editors. The tree items are manually created by inserting special markers into the text editor. Multiple scopes are supported (see below) with their own marker system. You can open or hide the panel using the `navigation-panel:open` and `navigation-panel:hide` commands or optionally use `navigation-panel:toggle` (`Alt+N`). The package supports multiple cursors.
+This package provides a panel for navigating through custom symbols in text editors. The tree items are manually created by inserting special markers into the text editor. Multiple scopes are supported (see below) with their own marker system. You can open or hide the panel using the `navigation-panel:open` and `navigation-panel:hide` commands or optionally use `navigation-panel:toggle` (<kbd>Alt+N</kbd>). The package supports multiple cursors.
 
 ## Real section level
 
@@ -33,9 +33,9 @@ For each header, the package can create a marker to highlight the corresponding 
 
 A panel has few handly commands. There are mouse interactions:
 
-- `LeftMouseButton`: scroll to header
-- `Ctrl+LeftMouseButton`: create a new cursor on the header line and scroll to
-- `Alt+LeftMouseButton`: copy header text
+- use <kbd>LeftMouseButton</kbd> to scroll to header,
+- use <kbd>Ctrl+LeftMouseButton</kbd> to create a new cursor on the header line and scroll to,
+- use <kbd>Alt+LeftMouseButton</kbd> to copy header text.
 
 At context menu there are shortcuts to modify settings locally.
 
