@@ -19,7 +19,7 @@ To install `navigation-panel` search for [navigation-panel](https://web.pulsar-e
 
 ## Sections panel
 
-This package provides a panel for navigating through custom symbols in text editors. The tree items are manually created by inserting special markers into the text editor. Multiple scopes are supported (see below) with their own marker system. You can open or hide the panel using the `navigation-panel:open` and `navigation-panel:hide` commands or optionally use `navigation-panel:toggle` (<kbd>Alt+N</kbd>). The package supports multiple cursors.
+This package provides a panel for navigating through custom symbols in text editors. The tree items are manually created by inserting special markers into the text editor. Multiple scopes are supported (see below) with their own marker system. You can open or hide the panel using the `navigation-panel:open` and `navigation-panel:hide` commands or optionally use `navigation-panel:toggle`. The package supports multiple cursors.
 
 ## Real section level
 
