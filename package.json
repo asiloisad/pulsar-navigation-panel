@@ -159,6 +159,10 @@
           "type": "string",
           "enum": [
             {
+              "description": "Top half",
+              "value": "top-half"
+            },
+            {
               "description": "Top",
               "value": "top"
             },
@@ -171,7 +175,7 @@
               "value": "center"
             }
           ],
-          "default": "top"
+          "default": "top-half"
         },
         "traceVisible": {
           "order": 11,
