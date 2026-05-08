@@ -3,3 +3,13 @@
 
 ".navigation-search":
   'escape': "navigation-panel:clear"
+  'tab': 'navigation-panel:toggle-search-focus'
+
+".navigation-panel":
+  'escape': 'navigation-panel:clear'
+  'tab': 'navigation-panel:toggle-search-focus'
+  'up': 'navigation-panel:select-previous-header'
+  'down': 'navigation-panel:select-next-header'
+  'left': 'navigation-panel:collapse-selected-header'
+  'right': 'navigation-panel:expand-selected-header'
+  'enter': 'navigation-panel:open-selected-header'
