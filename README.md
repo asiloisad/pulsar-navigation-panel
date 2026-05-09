@@ -58,8 +58,8 @@ The category settings can be changed globally in the package settings or locally
 - `navigation-panel:info-toggle`: toggle info category headers
 - `navigation-panel:success-toggle`: toggle success category headers
 - `navigation-panel:warning-toggle`: toggle warning category headers
-- `navigation-panel:error-toggle`:  toggle error category headers
-- `navigation-panel:standard-toggle`:  toggle category-less headers
+- `navigation-panel:error-toggle`: toggle error category headers
+- `navigation-panel:standard-toggle`: toggle category-less headers
 
 ## Collapse modes
 
@@ -75,7 +75,7 @@ There are functions that provide folding actions (fold, unfold, or toggle) for s
 
 - `navigation-panel:fold-toggle`: toggle fold of current section
 - `navigation-panel:fold-section`: fold current section
-- `navigation-panel:fold-section-at-n`: fold last section at level *n*
+- `navigation-panel:fold-section-at-n`: fold last section at level _n_
 - `navigation-panel:fold-as-table`: fold all section but in nested form
 - `navigation-panel:fold-all-infos`: fold as table, but only headers with category `info`
 - `navigation-panel:fold-all-successes`: fold as table, but only headers with category `success`
@@ -95,6 +95,7 @@ You can test and analyze the regex patterns below on [regex101](https://regex101
 The style can be adjusted according to user preferences in the `styles.less` file:
 
 - e.g. all markers have highlighted background, but only level 1, 2 and 3 have their own color:
+
   ```less
   .navigation-marker {
     background: rgba(233, 228, 141, 0.3);
@@ -111,6 +112,7 @@ The style can be adjusted according to user preferences in the `styles.less` fil
   ```
 
 - e.g. add top border to markers with level 1:
+
   ```less
   .navigation-marker-1 {
     border-top: 0.016px solid @text-color-info;
@@ -118,6 +120,7 @@ The style can be adjusted according to user preferences in the `styles.less` fil
   ```
 
 - e.g. change font to monospace:
+
   ```less
   .navigation-panel {
     font-family: monospace;
