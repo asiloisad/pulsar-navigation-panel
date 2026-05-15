@@ -134,13 +134,13 @@ The style can be adjusted according to user preferences in the `styles.less` fil
   }
   ```
 
-# Supported scopes
+## Supported scopes
 
-## ASCII
+### ASCII
 
 Global regular expression is `^(=={0,5}|#\#{0,5})[ \t]+(.+?)(?:[ \t]+\1)?$`.
 
-## LaTeX
+### LaTeX
 
 Global regular expression is `([^%\n]*)%(\$+)([\*\+\-\!\_]?)%(.*)|^[^\%\n]*\\(part*?|chapter*?|section*?|subsection*?|subsubsection*?|paragraph*?|subparagraph*?)\*?(?:\[(.*)\])?{(.*)}`. The `\part{...}` is equal level 4, `\chapter{...}` is level 5 etc. The section commands can be changed in package settings.
 
@@ -157,7 +157,7 @@ In case of `([^%\n]*)%(\$+)%(.*)`, the additional letter can be used to provide 
 - `!`: error category
 - `_`: separator category
 
-## BibTeX
+### BibTeX
 
 Global regular expression is `([^%\n]*)%(\$+)([\*!-]?)%(.*)|^[ ]*\@(\w*)[ ]*{[ ]*([^\,]*)`. The `@<type>{<text>,` is level 6.
 
@@ -173,22 +173,22 @@ Additional letter can be used to provide additional visual effect:
 - `!`: error category
 - `_`: separator category
 
-## Markdown
+### Markdown
 
 Global regular expression is `^ *(\#+) (.*)`. The level is defined as count of `#`. The number of levels is endless.
 
 - e.g. `# Countries` -> `1. Countries`
-- e.g. `## United Kingdom` -> `1.1. United Kingdom`
+- e.g. `### United Kingdom` -> `1.1. United Kingdom`
 
-## Tasklist
+### Tasklist
 
 Global regular expression is `(?:^(#+) +(.+?) *$|^ *(.+?) *: *$)`. The level is defined as count of `#`. The number of levels is endless. A header level is equal 5.
 
 - e.g. `# Countries` -> `1. Countries`
-- e.g. `## United Kingdom` -> `1.1. United Kingdom`
+- e.g. `### United Kingdom` -> `1.1. United Kingdom`
 - e.g. `United Kingdom:` -> `1.1.1.1.1. United Kingdom`
 
-## Python
+### Python
 
 Global regular expression is `^([^#\n]*)#(?:%%)?(\$+[spv1]?|\?)([\*\+\-\!\_]?)#(.*)` where count of `$` mean the level on list. Headers are compatible with [hydrogen-next](https://github.com/asiloisad/pulsar-hydrogen-next) cells.
 
@@ -223,7 +223,7 @@ As special case you can use `#?#` or `#?<category>#` which mean auto level base 
 - e.g. `document.section(2, 'United Kingdom') #?+#` -> `1.1. United Kingdom` with success category
 - e.g. `document.section(2, 'United Kingdom') #?!#` -> `1.1. United Kingdom` with error category
 
-## C-like
+### C-like
 
 Global regular expression is `^([^\/\/\n]*)\/\/(\$+[sv1]?|\?)([\*\+\-\!\_]?)\/\/(.*)` where count of `$` mean the level on list.
 
@@ -250,7 +250,7 @@ As special case you can use `//?//` or `//?<category>//` which mean auto level b
 - e.g. `document.section(2, 'United Kingdom') //?+//` -> `1.1. United Kingdom` with success category
 - e.g. `document.section(2, 'United Kingdom') //?!//` -> `1.1. United Kingdom` with error category
 
-## JavaScript
+### JavaScript
 
 Global regular expression is `^([^\/\/\n]*)\/\/(?:%%)?(\$+[scfv1]?|\?)([\*\+\-\!\_]?)\/\/(.*)` where count of `$` mean the level on list.
 
@@ -285,11 +285,11 @@ As special case you can use `//?//` or `//?<category>//` which mean auto level b
 - e.g. `document.section(1, 'Main') //?!//` -> `1. Main` with error category
 - e.g. `document.section(2, 'Sub') //?+//` -> `1.1. Sub` with success category
 
-## ReStructuredText
+### ReStructuredText
 
 Global regular expression is `^(.+)\n([!-/:-@[-[-~])\2+$`.
 
-## SOFiSTiK
+### SOFiSTiK
 
 Global regular expression is `^ *(#define [^\n=]+$|#enddef)|^!([+-\\#\\$])!(?:chapter|kapitel) (.*)|(^(?! *\$)[^!\n]*)!(\$+)!(.*)|^ *([+-])?prog +([^\n]*)(?:\n *head +(.+))?|^ *!.! +(.*)|^\$ graphics +(\d+) +\| +picture +(\d+) +\| +layer +(\d+) +: *(.*)`. The `chapter` is equal level 4, `prog` is equal level 5 and `label` is equal level 6.
 
@@ -299,7 +299,7 @@ Global regular expression is `^ *(#define [^\n=]+$|#enddef)|^!([+-\\#\\$])!(?:ch
 - e.g. `+prog aqua` -> `1.1.1.1.1. aqua`
 - e.g. `+prog aqua \n head sections` -> `1.1.1.1.1.1. aqua: head sections`
 
-## Sinumerik
+### Sinumerik
 
 Global regular expression is `^;{2}[*+\-!]? (.+)$`.
 
@@ -312,11 +312,11 @@ Additional letter can be used to provide additional visual effect:
 - `-`: warning category
 - `!`: error category
 
-## pdf-viewer
+### pdf-viewer
 
 The package support the outline tree of [pdf-viewer](https://github.com/asiloisad/pulsar-pdf-viewer). You can search through document by all-in outline tree instead of PDFjs outline. A section number can be hidden.
 
-## image-editor
+### image-editor
 
 The package support the file list of [image-editor](https://github.com/asiloisad/pulsar-image-editor).
 
