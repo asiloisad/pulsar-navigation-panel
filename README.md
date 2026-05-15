@@ -19,7 +19,46 @@ To install `navigation-panel` search for [navigation-panel](https://web.pulsar-e
 
 ## Sections panel
 
-This package provides a panel for navigating through custom symbols in text editors. The tree items are manually created by inserting special markers into the text editor. Multiple scopes are supported (see below) with their own marker system. You can open or hide the panel using the `navigation-panel:open` and `navigation-panel:hide` commands or optionally use `navigation-panel:toggle`. The package supports multiple cursors.
+This package provides a panel for navigating through custom symbols in text editors. The tree items are manually created by inserting special markers into the text editor. Multiple scopes are supported (see below) with their own marker system. The package supports multiple cursors.
+
+## Commands
+
+Commands available in `atom-workspace`:
+
+- `navigation-panel:open`: open navigation panel,
+- `navigation-panel:open-and-split-down`: open navigation panel in split down,
+- `navigation-panel:hide`: hide navigation panel,
+- `navigation-panel:toggle`: <kbd>Alt+N</kbd> toggle navigation panel,
+- `navigation-panel:list`: open fuzzy modal list of current headers,
+- `navigation-panel:next-header`: navigate to next visible header,
+- `navigation-panel:previous-header`: navigate to previous visible header,
+- `navigation-panel:fold-toggle`: toggle fold of current section,
+- `navigation-panel:fold-section`: fold current section,
+- `navigation-panel:fold-section-at-N`: fold last section at level N,
+- `navigation-panel:fold-as-table`: fold all sections as table of contents,
+- `navigation-panel:fold-all-infos`: fold all info sections,
+- `navigation-panel:fold-all-successes`: fold all success sections,
+- `navigation-panel:fold-all-warnings`: fold all warning sections,
+- `navigation-panel:fold-all-errors`: fold all error sections,
+- `navigation-panel:unfold`: unfold current section,
+- `navigation-panel:unfold-all`: unfold all sections,
+- `navigation-panel:markers-toggle`: toggle navigation markers.
+
+Commands available in `.navigation-panel`:
+
+- `navigation-panel:search`: focus search editor,
+- `navigation-panel:clear`: <kbd>Esc</kbd> clear search editor,
+- `navigation-panel:toggle-search-focus`: <kbd>Tab</kbd> toggle focus between search and header list,
+- `navigation-panel:select-previous-header`: <kbd>Up</kbd> select previous header,
+- `navigation-panel:select-next-header`: <kbd>Down</kbd> select next header,
+- `navigation-panel:collapse-selected-header`: <kbd>Left</kbd> collapse selected header,
+- `navigation-panel:expand-selected-header`: <kbd>Right</kbd> expand selected header,
+- `navigation-panel:open-selected-header`: <kbd>Enter</kbd> open selected header.
+
+Commands available in `.navigation-panel-list`:
+
+- `select-list:open`: <kbd>Enter</kbd> navigate to selected header,
+- `select-list:scroll`: <kbd>Alt+Enter</kbd> scroll to selected header.
 
 ## Real section level
 
@@ -42,9 +81,6 @@ At context menu there are shortcuts to modify settings locally.
 ## Search bar
 
 Headers can be filtered. Fuzzy-finder is used and items are sorted by score.
-
-- `navigation-panel:search`: focus search-editor
-- `navigation-panel:clear`: clear text of search-editor
 
 ## Categories
 

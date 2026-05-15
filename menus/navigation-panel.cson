@@ -109,6 +109,7 @@
           { label: 'Open', command: 'navigation-panel:open' }
           { label: 'Open and Split Down', command: 'navigation-panel:open-and-split-down' }
           { label: 'Toggle', command: 'navigation-panel:toggle' }
+          { label: 'List Headers', command: 'navigation-panel:list' }
           { label: 'Hide', command: 'navigation-panel:hide' }
           { type: 'separator' }
           { label: 'Next Header', command: 'navigation-panel:next-header' }
