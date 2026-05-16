@@ -335,6 +335,19 @@ Global regular expression is `^ *(#define [^\n=]+$|#enddef)|^!([+-\\#\\$])!(?:ch
 - e.g. `+prog aqua` -> `1.1.1.1.1. aqua`
 - e.g. `+prog aqua \n head sections` -> `1.1.1.1.1.1. aqua: head sections`
 
+### Typst
+
+Global regular expression is:
+
+```
+^(`{3,})|^ *(=+) (.+)$
+```
+
+The level is defined as count of `=`. The number of levels is endless. Headings inside raw blocks (fenced with triple backticks) are skipped.
+
+- e.g. `= Countries` -> `1. Countries`
+- e.g. `=== United Kingdom` -> `1.1. United Kingdom`
+
 ### Sinumerik
 
 Global regular expression is `^;{2}[*+\-!]? (.+)$`.

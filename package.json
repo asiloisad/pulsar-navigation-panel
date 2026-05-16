@@ -15,7 +15,8 @@
     "Python",
     "ReStructured",
     "SOFiSTiK",
-    "Sinumerik"
+    "Sinumerik",
+    "Typst"
   ],
   "version": "1.7.0",
   "license": "MIT",
