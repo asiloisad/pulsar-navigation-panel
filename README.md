@@ -10,7 +10,8 @@ Document outline and navigation panel. Navigate through custom section markers i
 - **Multi-level headers**: Automatic level calculation for nested sections.
 - **Category markers**: Tag headers as info, success, warning, or error.
 - **Section folding**: Fold/unfold sections and view as table of contents.
-- **Multiple scopes**: LaTeX, Python, Markdown, JavaScript, and more.
+- **Multiple scopes**: LaTeX, Python, Markdown, JavaScript, and more. Individual built-in scanners can be disabled in settings to let a community adapter take over.
+- **Adapter support**: External packages can provide navigation headers for any pane item type via the `navigation-adapter` service. Used by [pdf-viewer](https://github.com/asiloisad/pulsar-pdf-viewer), [image-editor](https://github.com/asiloisad/pulsar-image-editor), and [jupyter-next](https://github.com/asiloisad/pulsar-jupyter-next).
 - **Scrollmap**: Shows navigation markers in the scrollbar via [scrollmap](https://github.com/asiloisad/pulsar-scrollmap).
 
 ## Installation
@@ -72,9 +73,9 @@ For each header, the package can create a marker to highlight the corresponding 
 
 A panel has few handly commands. There are mouse interactions:
 
-- use <kbd>LeftMouseButton</kbd> to scroll to header,
-- use <kbd>Ctrl+LeftMouseButton</kbd> to create a new cursor on the header line and scroll to,
-- use <kbd>Alt+LeftMouseButton</kbd> to copy header text.
+- use <kbd>LeftMouseButton</kbd> to navigate to item,
+- use <kbd>Ctrl+LeftMouseButton</kbd> to create a new cursor on the header line and scroll to (text editors only),
+- use <kbd>Alt+LeftMouseButton</kbd> to copy item text to clipboard.
 
 At context menu there are shortcuts to modify settings locally.
 
@@ -363,11 +364,64 @@ Additional letter can be used to provide additional visual effect:
 
 ### pdf-viewer
 
-The package support the outline tree of [pdf-viewer](https://github.com/asiloisad/pulsar-pdf-viewer). You can search through document by all-in outline tree instead of PDFjs outline. A section number can be hidden.
+[pdf-viewer](https://github.com/asiloisad/pulsar-pdf-viewer) provides its document outline via the `navigation-adapter` service. You can search the entire outline tree instead of the built-in PDFjs outline. A section number filter and scroll-position tracking are supported. Configure the filter in pdf-viewer settings (`snoFilter`).
 
 ### image-editor
 
-The package support the file list of [image-editor](https://github.com/asiloisad/pulsar-image-editor).
+[image-editor](https://github.com/asiloisad/pulsar-image-editor) provides its folder file list via the `navigation-adapter` service.
+
+### jupyter-next
+
+[jupyter-next](https://github.com/asiloisad/pulsar-jupyter-next) provides markdown cell headings via the `navigation-adapter` service. Clicking a heading activates the corresponding cell and scrolls to it.
+
+## Consumed Service `navigation-adapter`
+
+Allows external packages to provide navigation headers for any pane item type. When an adapter is registered and its `handlesItem` returns true for the active pane item, the panel displays headers provided by the adapter instead of running a built-in scanner.
+
+In your `package.json`:
+
+```json
+{
+  "providedServices": {
+    "navigation-adapter": {
+      "versions": {
+        "1.0.0": "provideNavigationAdapter"
+      }
+    }
+  }
+}
+```
+
+In your main module:
+
+```javascript
+module.exports = {
+  provideNavigationAdapter() {
+    return {
+      // Return true if this adapter handles the given pane item
+      handlesItem: (item) => item instanceof MyCustomEditor,
+
+      // Push a nested tree array initially and whenever headers or state change.
+      // Must return a Disposable.
+      observeHeaders: (item, callback) => {
+        callback(item.getNavigationHeaders(), { instant: true });
+        return item.onDidChangeNavigation(() => {
+          callback(item.getNavigationHeaders());
+        });
+      },
+
+      // Navigate to the given header.
+      // options.focus    – false when scrolling without switching focus
+      // options.addCursor – true on Ctrl+click (add cursor, do not move)
+      navigateTo: (item, header, options) => item.revealHeader(header, options),
+    };
+  },
+};
+```
+
+Header objects should have `{ text, level, classList, children }`, where `children` is an array of child header objects. The adapter should build the nested structure and decide when to push a replacement tree. If the adapter tracks current or visible state, it should include that state directly on the pushed headers using `currentCount` / `stackCount` and `visibility`, or the public aliases `current` / `active` and `visible`.
+
+The panel augments the tree with navigation callbacks and default display state, but it does not derive hierarchy from a flat list or compute adapter current/visible state.
 
 ## Contributing
 

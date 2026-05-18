@@ -31,23 +31,30 @@
       }
     }
   },
+  "consumedServices": {
+    "navigation-adapter": {
+      "versions": {
+        "1.0.0": "consumeNavigationAdapter"
+      }
+    }
+  },
   "dependencies": {
     "@asiloisad/select-list": "^1.6.0",
     "diacritic": "0.0.2",
     "etch": "^0.14.1"
   },
   "configSchema": {
-    "general": {
+    "panel": {
       "order": 1,
-      "title": "General",
-      "description": "General settings for all scopes.",
+      "title": "Panel",
+      "description": "Panel display and behavior settings.",
       "type": "object",
       "collapsed": true,
       "properties": {
         "defaultSide": {
           "order": 1,
           "title": "Default side",
-          "description": "Default panel side to navigation-panel appear. Restart needed.",
+          "description": "Which side the panel opens on. Restart needed.",
           "type": "string",
           "enum": [
             {
@@ -61,18 +68,83 @@
           ],
           "default": "left"
         },
-        "markLines": {
+        "visibility": {
           "order": 2,
-          "title": "Mark section lines",
+          "title": "Visibility mode",
+          "description": "Default tree expand/collapse behavior. Can also be changed via command or panel context menu.",
+          "type": "integer",
+          "enum": [
+            {
+              "description": "Collapsed",
+              "value": 0
+            },
+            {
+              "description": "Expanded",
+              "value": 1
+            },
+            {
+              "description": "Auto-collapse",
+              "value": 2
+            }
+          ],
+          "default": 1
+        },
+        "traceVisible": {
+          "order": 3,
+          "title": "Trace visible headers",
+          "description": "Highlight headers visible in the editor viewport and scroll the panel to follow.",
           "type": "boolean",
-          "description": "Mark section lines by fancy marker. The style of markers can be customized in `style.less`. Restart needed.",
           "default": true
+        },
+        "searchBar": {
+          "order": 4,
+          "title": "Show search bar",
+          "description": "Show the search bar at the top of the panel. Restart needed.",
+          "type": "boolean",
+          "default": true
+        },
+        "categoryBar": {
+          "order": 5,
+          "title": "Show category bar",
+          "description": "Show the category filter bar at the bottom of the panel. Restart needed.",
+          "type": "boolean",
+          "default": true
+        },
+        "textWrap": {
+          "order": 6,
+          "title": "Wrap text",
+          "description": "Wrap long header text instead of showing a horizontal scrollbar. Restart needed.",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "editor": {
+      "order": 2,
+      "title": "Editor",
+      "description": "Editor navigation and marker settings.",
+      "type": "object",
+      "collapsed": true,
+      "properties": {
+        "markLines": {
+          "order": 1,
+          "title": "Mark section lines",
+          "description": "Decorate section lines in the gutter or text. Style can be customized in `style.less`. Restart needed.",
+          "type": "boolean",
+          "default": true
+        },
+        "markerUserLevel": {
+          "order": 2,
+          "title": "User-level marker colors",
+          "description": "Use the user-assigned section level for marker color instead of the real level. Restart needed.",
+          "type": "boolean",
+          "default": false
         },
         "markerType": {
           "order": 3,
           "title": "Marker type",
+          "description": "Which parts of the line to decorate. Restart needed.",
           "type": "string",
-          "description": "Select the type of decoration markers. Restart needed.",
           "enum": [
             {
               "description": "Line",
@@ -87,191 +159,165 @@
               "value": "text"
             },
             {
-              "description": "Line & Line number",
+              "description": "Line & line number",
               "value": "line&line-number"
             },
             {
-              "description": "Text & Line number",
+              "description": "Text & line number",
               "value": "text&line-number"
             }
           ],
           "default": "line"
         },
-        "markerKind": {
+        "scrollPosition": {
           "order": 4,
-          "title": "Markers at user section level",
-          "description": "The default behaviour of markup is to use the real section level. In some cases, the user may wish to use user sections instead of the actual section level. Restart needed.",
-          "type": "boolean",
-          "default": false
-        },
-        "maxHeadingDepth": {
-          "order": 5,
-          "title": "Max sections deepth",
-          "description": "The level reference to real section level, not user one. Scope dependend. Refocus needed.",
-          "type": "integer",
-          "minimum": 1,
-          "default": 9
-        },
-        "searchBar": {
-          "order": 6,
-          "title": "Show search bar in panel",
-          "description": "Toggla state of search bar in panel view. Restart needed.",
-          "type": "boolean",
-          "default": true
-        },
-        "categoryBar": {
-          "order": 7,
-          "title": "Show category bar in panel",
-          "description": "Toggla state of category bar in panel view. Restart needed.",
-          "type": "boolean",
-          "default": true
-        },
-        "textWrap": {
-          "order": 8,
-          "title": "Wrap text in panel",
-          "description": "If header text is to long to fit in single line, then text can be wrapped or horizontal bar occurs. Restart needed.",
-          "type": "boolean",
-          "default": true
-        },
-        "visibility": {
-          "order": 9,
-          "title": "Visibility mode",
-          "description": "Set the visibility mode of tree headers. You can change this parameter for Atom instance by command or in conext-menu of panel. Restart needed.",
-          "type": "integer",
-          "enum": [
-            {
-              "description": "Collapse mode",
-              "value": 0
-            },
-            {
-              "description": "Expand mode",
-              "value": 1
-            },
-            {
-              "description": "Auto collapse",
-              "value": 2
-            }
-          ],
-          "default": 1
-        },
-        "editorScrollPosition": {
-          "order": 10,
-          "title": "Editor scroll position",
-          "description": "Scroll zone as % of viewport height. Single value e.g. `0` is strict mode (always scroll cursor to that position). Two values e.g. `0-50` define a lazy zone (scroll only when cursor exits the zone). 0 = top margin, 100 = bottom margin.",
+          "title": "Scroll position",
+          "description": "Scroll zone as % of viewport height. Single value e.g. `25` always scrolls cursor to that position. Two values e.g. `10-75` define a lazy zone — scrolls only when cursor leaves it. 0 = top, 100 = bottom.",
           "type": "string",
           "default": "0-50"
         },
-        "traceVisible": {
-          "order": 11,
-          "title": "Trace visible headers",
-          "description": "Mark icon of visible headers and scroll view of navigation-tree.",
-          "type": "boolean",
-          "default": true
+        "maxHeadingDepth": {
+          "order": 5,
+          "title": "Max heading depth",
+          "description": "Maximum section level to include in the outline (real level, not user level). Refocus needed.",
+          "type": "integer",
+          "minimum": 1,
+          "default": 9
         }
       }
     },
-    "categories": {
-      "order": 2,
-      "title": "Categories for headers",
-      "description": "Mark headers by categories. The categories can be filtered in bottom bar of panel, context menu of panel or by command. The categories are predefined: info, success, warning, error. The meaning of the categories depends on the creativity of the user, use them as you like.",
+    "scanners": {
+      "order": 3,
+      "title": "Scanners",
+      "description": "Enable or disable individual built-in language scanners.",
       "type": "object",
       "collapsed": true,
       "properties": {
-        "info": {
+        "asciidoc": {
           "order": 1,
-          "title": "Show info category headers",
-          "description": "Global state of category. You can change this parameter for Atom instance by command or in conext-menu of panel. Restart needed.",
+          "title": "AsciiDoc",
           "type": "boolean",
           "default": true
         },
-        "success": {
+        "bibtex": {
           "order": 2,
-          "title": "Show success category headers",
-          "description": "Global state of category. You can change this parameter for Atom instance by command or in conext-menu of panel. Restart needed.",
+          "title": "BibTeX",
           "type": "boolean",
           "default": true
         },
-        "warning": {
+        "clike": {
           "order": 3,
-          "title": "Show warning category headers",
-          "description": "Global state of category. You can change this parameter for Atom instance by command or in conext-menu of panel. Restart needed.",
+          "title": "C / C# / C++",
           "type": "boolean",
           "default": true
         },
-        "error": {
+        "javascript": {
           "order": 4,
-          "title": "Show error category headers",
-          "description": "Global state of category. You can change this parameter for Atom instance by command or in conext-menu of panel. Restart needed.",
+          "title": "JavaScript / TypeScript",
           "type": "boolean",
           "default": true
         },
-        "standard": {
+        "latex": {
           "order": 5,
-          "title": "Show category-less headers",
-          "description": "Global state of category. You can change this parameter for Atom instance by command or in conext-menu of panel. Restart needed.",
+          "title": "LaTeX",
+          "type": "boolean",
+          "default": true
+        },
+        "markdown": {
+          "order": 6,
+          "title": "Markdown",
+          "type": "boolean",
+          "default": true
+        },
+        "python": {
+          "order": 7,
+          "title": "Python",
+          "type": "boolean",
+          "default": true
+        },
+        "rest": {
+          "order": 8,
+          "title": "reStructuredText",
+          "type": "boolean",
+          "default": true
+        },
+        "sinumerik": {
+          "order": 9,
+          "title": "Sinumerik",
+          "type": "boolean",
+          "default": true
+        },
+        "sofistik": {
+          "order": 10,
+          "title": "SOFiSTiK",
+          "type": "boolean",
+          "default": true
+        },
+        "tasklist": {
+          "order": 11,
+          "title": "Tasklist",
+          "type": "boolean",
+          "default": true
+        },
+        "typst": {
+          "order": 12,
+          "title": "Typst",
           "type": "boolean",
           "default": true
         }
       }
     },
     "latex": {
-      "order": 3,
+      "order": 4,
       "title": "LaTeX",
-      "description": "LaTeX scope settings.",
+      "description": "LaTeX scanner settings.",
       "type": "object",
       "collapsed": true,
       "properties": {
         "commands": {
           "type": "object",
           "title": "Section commands",
-          "description": "The `|` symbol can be used to use multiple names. The regexs are case sensitive and must be valid JavaScript regex statment **without groups**.",
+          "description": "Regex pattern matched against the LaTeX command name. Use `|` to match multiple names. Case-sensitive, no capture groups allowed. Refocus needed.",
           "properties": {
             "4": {
               "order": 4,
-              "title": "part command of level 4",
-              "description": "Refocus needed.",
+              "title": "Level 4 — part",
               "type": "string",
               "default": "part\\*?"
             },
             "5": {
               "order": 5,
-              "title": "chapter command of level 5",
-              "description": "Refocus needed.",
+              "title": "Level 5 — chapter",
               "type": "string",
               "default": "chapter\\*?"
             },
             "6": {
               "order": 6,
-              "title": "section command of level 6",
-              "description": "Refocus needed.",
+              "title": "Level 6 — section",
               "type": "string",
               "default": "section\\*?"
             },
             "7": {
               "order": 7,
-              "title": "subsection command of level 7",
-              "description": "Refocus needed.",
+              "title": "Level 7 — subsection",
               "type": "string",
               "default": "subsection\\*?"
             },
             "8": {
               "order": 8,
-              "title": "subsubsection command of level 8",
-              "description": "Refocus needed.",
+              "title": "Level 8 — subsubsection",
               "type": "string",
               "default": "subsubsection\\*?"
             },
             "9": {
               "order": 9,
-              "title": "paragraph command of level 9",
-              "description": "Refocus needed.",
+              "title": "Level 9 — paragraph",
               "type": "string",
               "default": "paragraph\\*?"
             },
             "10": {
               "order": 10,
-              "title": "subparagraph command of level 10",
-              "description": "Refocus needed.",
+              "title": "Level 10 — subparagraph",
               "type": "string",
               "default": "subparagraph\\*?"
             }
@@ -280,55 +326,39 @@
       }
     },
     "sofistik": {
-      "order": 4,
+      "order": 5,
       "title": "SOFiSTiK",
-      "description": "SOFiSTiK scope settings.",
+      "description": "SOFiSTiK scanner settings.",
       "type": "object",
       "collapsed": true,
       "properties": {
-        "inBlock": {
+        "showInBlock": {
           "order": 1,
           "title": "Show sections inside define block",
           "type": "boolean",
-          "description": "You can outline section inside define block or not. Refocus needed.",
+          "description": "Include sections defined inside `#define` blocks in the outline. Refocus needed.",
           "default": true
         },
         "icons": {
           "order": 2,
-          "title": "Show icons for chapters and programs",
+          "title": "Show chapter/program icons",
           "type": "boolean",
-          "description": "The icons can be used to change state of chapter of program. Refocus needed.",
+          "description": "Show clickable icons next to chapters and programs for toggling their state. Refocus needed.",
           "default": true
         }
       }
     },
     "tasklist": {
-      "order": 5,
+      "order": 6,
       "title": "Tasklist",
-      "description": "Tasklist scope settings.",
+      "description": "Tasklist scanner settings.",
       "type": "object",
       "collapsed": true,
       "properties": {
         "useHeaders": {
           "order": 1,
-          "title": "Use Headers in navigation-list",
-          "description": "Tasklist use headers concept to part a list. You can use them as nodes in navigation-list.",
-          "type": "boolean",
-          "default": false
-        }
-      }
-    },
-    "pdfjs": {
-      "order": 5,
-      "title": "PDFjs",
-      "description": "PDFjs scope settings.",
-      "type": "object",
-      "collapsed": true,
-      "properties": {
-        "snoFilter": {
-          "order": 1,
-          "title": "Filter out section number",
-          "description": "Do not show section number.",
+          "title": "Use headers as nodes",
+          "description": "Show tasklist headers as outline nodes in the navigation list.",
           "type": "boolean",
           "default": false
         }
