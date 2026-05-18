@@ -1,5 +1,5 @@
 'atom-workspace':
-  'alt-n': 'navigation-panel:toggle'
+  'alt-n': 'navigation-panel:toggle-focus'
 
 ".navigation-search":
   'escape': "navigation-panel:clear"
