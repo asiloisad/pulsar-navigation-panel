@@ -1,4 +1,13 @@
 "context-menu":
+  ".navigation-block": [
+    {
+      label  : 'Copy Text',
+      command: 'navigation-panel:copy-header-text'
+    },
+    {
+      "type": "separator"
+    },
+  ]
   ".navigation-panel": [
     {
       label  : 'All Categories',
@@ -55,39 +64,8 @@
       "type": "separator"
     },
     {
-      label  : 'Fold as Table',
-      command: 'navigation-panel:fold-as-table'
-    },
-    {
-      label  : 'Fold all Infos',
-      command: 'navigation-panel:fold-all-infos'
-    },
-    {
-      label  : 'Fold all Successes',
-      command: 'navigation-panel:fold-all-successes'
-    },
-    {
-      label  : 'Fold all Warnings',
-      command: 'navigation-panel:fold-all-warnings'
-    },
-    {
-      label  : 'Fold all Errors',
-      command: 'navigation-panel:fold-all-errors'
-    },
-    {
-      label  : 'Unfold All',
-      command: 'navigation-panel:unfold-all'
-    },
-    {
-      "type": "separator"
-    },
-    {
       label  : 'Text Wrap Toggle',
       command: 'navigation-panel:text-wrap-toggle'
-    },
-    {
-      label  : 'Markers Toggle',
-      command: 'navigation-panel:markers-toggle'
     },
     {
       label  : 'Search Bar Toggle',

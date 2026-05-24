@@ -13,6 +13,8 @@
   'left': 'navigation-panel:collapse-selected-header'
   'right': 'navigation-panel:expand-selected-header'
   'enter': 'navigation-panel:open-selected-header'
+  'alt-enter': 'navigation-panel:open-selected-header-clear-search'
+  'ctrl-enter': 'navigation-panel:open-selected-header-add-cursor'
 
 ".navigation-panel-list atom-text-editor[mini]":
   'alt-enter': 'select-list:scroll'
