@@ -18,10 +18,6 @@ Document outline and navigation panel. Navigate through custom section markers i
 
 To install `navigation-panel` search for [navigation-panel](https://web.pulsar-edit.dev/packages/navigation-panel) in the Install pane of the Pulsar settings or run `ppm install navigation-panel`. Alternatively, you can run `ppm install asiloisad/pulsar-navigation-panel` to install a package directly from the GitHub repository.
 
-## Sections panel
-
-This package provides a panel for navigating through custom symbols in text editors. The tree items are manually created by inserting special markers into the text editor. Multiple scopes are supported (see below) with their own marker system. The package supports multiple cursors.
-
 ## Commands
 
 Commands available in `atom-workspace`:
@@ -30,7 +26,7 @@ Commands available in `atom-workspace`:
 - `navigation-panel:open-and-split-down`: open navigation panel in split down,
 - `navigation-panel:hide`: hide navigation panel,
 - `navigation-panel:toggle`: toggle navigation panel,
-- `navigation-panel:toggle-focus`: <kbd>Alt+N</kbd> open and focus navigation panel, or return focus to editor if already focused,
+- `navigation-panel:toggle-focus`: open and focus navigation panel, or return focus to editor if already focused,
 - `navigation-panel:list`: open fuzzy modal list of current headers,
 - `navigation-panel:next-header`: navigate to next visible header,
 - `navigation-panel:previous-header`: navigate to previous visible header,
@@ -49,18 +45,22 @@ Commands available in `atom-workspace`:
 Commands available in `.navigation-panel`:
 
 - `navigation-panel:search`: focus search editor,
-- `navigation-panel:clear`: <kbd>Esc</kbd> clear search editor,
-- `navigation-panel:toggle-search-focus`: <kbd>Tab</kbd> toggle focus between search and header list,
-- `navigation-panel:select-previous-header`: <kbd>Up</kbd> select previous header,
-- `navigation-panel:select-next-header`: <kbd>Down</kbd> select next header,
-- `navigation-panel:collapse-selected-header`: <kbd>Left</kbd> collapse selected header,
-- `navigation-panel:expand-selected-header`: <kbd>Right</kbd> expand selected header,
-- `navigation-panel:open-selected-header`: <kbd>Enter</kbd> open selected header.
+- `navigation-panel:clear`: clear search editor,
+- `navigation-panel:toggle-search-focus`: toggle focus between search and header list,
+- `navigation-panel:select-previous-header`: select previous header,
+- `navigation-panel:select-next-header`: select next header,
+- `navigation-panel:collapse-selected-header`: collapse selected header,
+- `navigation-panel:expand-selected-header`: expand selected header,
+- `navigation-panel:open-selected-header`: open selected header.
 
 Commands available in `.navigation-panel-list`:
 
-- `select-list:open`: <kbd>Enter</kbd> navigate to selected header,
-- `select-list:scroll`: <kbd>Alt+Enter</kbd> scroll to selected header.
+- `select-list:open`: navigate to selected header,
+- `select-list:scroll`: scroll to selected header.
+
+## Sections panel
+
+This package provides a panel for navigating through custom symbols in text editors. The tree items are manually created by inserting special markers into the text editor. Multiple scopes are supported (see below) with their own marker system. The package supports multiple cursors.
 
 ## Real section level
 
@@ -74,9 +74,9 @@ For each header, the package can create a marker to highlight the corresponding 
 
 A panel has few handly commands. There are mouse interactions:
 
-- use <kbd>LeftMouseButton</kbd> to navigate to item,
-- use <kbd>Ctrl+LeftMouseButton</kbd> to create a new cursor on the header line and scroll to (text editors only),
-- use <kbd>Alt+LeftMouseButton</kbd> to copy item text to clipboard.
+- use LeftMouseButton to navigate to item,
+- use Ctrl+LeftMouseButton to create a new cursor on the header line and scroll to (text editors only),
+- use Alt+LeftMouseButton to copy item text to clipboard.
 
 At context menu there are shortcuts to modify settings locally.
 
